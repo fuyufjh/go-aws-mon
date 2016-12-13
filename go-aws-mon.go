@@ -2,11 +2,12 @@ package main
 
 import (
 	"flag"
-	"github.com/aws/aws-sdk-go/aws"
-	"github.com/aws/aws-sdk-go/service/cloudwatch"
 	"log"
 	"os"
 	"strings"
+
+	"github.com/aws/aws-sdk-go/aws"
+	"github.com/aws/aws-sdk-go/service/cloudwatch"
 )
 
 func main() {
@@ -124,6 +125,6 @@ func main() {
 
 	err = putMetric(metricData, *ns, metadata["region"])
 	if err != nil {
-		log.Fatal("Can't put CloudWatch Metric")
+		log.Fatal("Can't put CloudWatch Metric: ", err)
 	}
 }
